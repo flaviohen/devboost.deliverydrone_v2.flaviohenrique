@@ -16,13 +16,15 @@ namespace Devboost.DroneDelivery.Repository.Implementation
     public class PedidosRepository : IPedidosRepository
     {
         private readonly string _configConnectionString = "DroneDelivery";
-        private readonly IDbConnectionFactoryExtended _dbFactory; 
+        private readonly IDbConnectionFactoryExtended _dbFactory;
+        private readonly IConfiguration _config;
 
         public PedidosRepository(IConfiguration config)
         {
             _dbFactory = new OrmLiteConnectionFactory(
                 config.GetConnectionString(_configConnectionString),  
                 SqlServerDialect.Provider);
+            _config = config;
         }
 
         public async Task<List<PedidoEntity>> GetAll()
@@ -68,6 +70,8 @@ namespace Devboost.DroneDelivery.Repository.Implementation
                 p =>
                     p.DroneId == droneId
                     && p.Status == PedidoStatus.EmTransito.ToString());
+
+            //p.Cliente = new ClienteRepository(_config).get
 
             return p.ConvertTo<PedidoEntity>();
 

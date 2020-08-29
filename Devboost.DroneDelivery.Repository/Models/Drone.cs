@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Devboost.DroneDelivery.Repository.Models
@@ -19,5 +20,6 @@ namespace Devboost.DroneDelivery.Repository.Models
         public string Status { get; set; }
         public int Carga { get; set; }
         public DateTime DataAtualizacao { get; set; }
+        public virtual ICollection<DronePedido> Pedidos { get; set; }
     }
 }

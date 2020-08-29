@@ -19,12 +19,15 @@ namespace Devboost.DroneDelivery.IoC
             services.AddScoped<IDronesRepository, DronesRepository>(); 
             services.AddScoped<IPedidosRepository, PedidosRepository>();            
             services.AddScoped<IUsuariosRepository, UsuariosRepository>();
+            services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IEntregaCommand, EntregaCommand>();
             services.AddScoped<IDroneCommand, DroneCommand>();
             services.AddScoped<IDroneQuery, DroneQuery>();
             services.AddScoped<IPedidoCommand, PedidoCommand>();
             services.AddScoped<IPedidoQuery, PedidoQuery>();
+            services.AddScoped<IClienteQuery, ClienteQuery>();
+            services.AddScoped<IClienteCommand, ClienteCommand>();
 
             return services;
         }

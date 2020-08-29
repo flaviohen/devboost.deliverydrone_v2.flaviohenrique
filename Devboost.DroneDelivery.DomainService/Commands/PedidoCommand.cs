@@ -27,13 +27,11 @@ namespace Devboost.DroneDelivery.DomainService.Commands
             {
                 Id = Guid.NewGuid(),
                 Peso = pedido.Peso,
-                Latitude = pedido.Latitude,
-                Longitude = pedido.Longitude,
                 DataHora = pedido.DataHora,
             };
 
             //calculoDistancia
-            novoPedido.DistanciaDaEntrega = GeolocalizacaoService.CalcularDistanciaEmMetro(pedido.Latitude, pedido.Longitude);
+            //novoPedido.DistanciaDaEntrega = GeolocalizacaoService.CalcularDistanciaEmKM(pedido.Latitude, pedido.Longitude);
             //var distanciaEmMilhas = GeolocalizacaoService.distance(pedido.Latitude, pedido.Longitude, 'M');
             //var distanciaEmMilhasNauticas = GeolocalizacaoService.distance(pedido.Latitude, pedido.Longitude, 'N');
 
