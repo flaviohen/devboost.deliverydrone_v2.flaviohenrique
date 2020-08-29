@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemDefinitionGroup>
+        <PackageReference>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <ProjectReference>
+            <PrivateAssets>all</PrivateAssets>
+        </ProjectReference>
+    </ItemDefinitionGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\Devboost.DroneDelivery.DomainService\Devboost.DroneDelivery.DomainService.csproj" />
+      <ProjectReference Include="..\Devboost.DroneDelivery.Domain\Devboost.DroneDelivery.Domain.csproj" />
+      <ProjectReference Include="..\Devboost.DroneDelivery.Repository\Devboost.DroneDelivery.Repository.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Class1.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.7" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.7" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.7" />
+      <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.7.1" />
+    </ItemGroup>
+
+</Project>
