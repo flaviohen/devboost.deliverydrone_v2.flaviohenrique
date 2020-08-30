@@ -13,7 +13,7 @@ namespace Devboost.DroneDelivery.Repository.Models
         }
 
         public Guid Id { get; set; }
-        public Cliente Cliente { get; set; }
+        public int Cliente_ID { get; set; }
         public int Peso { get; set; }
         public string Status { get; set; }
         public DateTime? DataHora { get; set; }

@@ -12,10 +12,12 @@ namespace Devboost.DroneDelivery.DomainService.Queries
     {
         private readonly IDronesRepository _dronesRepository;
         private readonly IPedidosRepository _pedidosRepository;
-        public DroneQuery(IDronesRepository dronesRepository, IPedidosRepository pedidosRepository)
+        private readonly IClienteRepository _clienteRepository;
+        public DroneQuery(IDronesRepository dronesRepository, IPedidosRepository pedidosRepository, IClienteRepository clienteRepository)
         {
             _dronesRepository = dronesRepository;
             _pedidosRepository = pedidosRepository;
+            _clienteRepository = clienteRepository;
         }
 
         public async Task<List<ConsultaDronePedidoDTO>> ConsultaDrone()
@@ -34,6 +36,11 @@ namespace Devboost.DroneDelivery.DomainService.Queries
         {
 
             var pedidos = await _pedidosRepository.GetByDroneID(drone.Id);
+
+			foreach (var item in pedidos)
+			{
+                item.Cliente = _clienteRepository.GetByID(item.Cliente_ID).Result[0];
+			}
 
             return new ConsultaDronePedidoDTO
             {

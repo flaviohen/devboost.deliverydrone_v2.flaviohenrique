@@ -79,12 +79,18 @@ namespace Devboost.DroneDelivery.Repository.Implementation
 
         public async Task Inserir(PedidoEntity pedido)
         {
-            var model = pedido.ConvertTo<Pedido>();
-            using var conexao = await _dbFactory.OpenAsync();
-            
-            conexao.CreateTableIfNotExists<Pedido>();
-            await conexao.InsertAsync(model);
+			try
+			{
+                var model = pedido.ConvertTo<Pedido>();
+                using var conexao = await _dbFactory.OpenAsync();
 
+                conexao.CreateTableIfNotExists<Pedido>();
+                await conexao.InsertAsync(model);
+            }
+			catch (Exception ex)
+			{
+				throw new Exception();
+			}
         }
 
         public async Task Atualizar(PedidoEntity pedido)

@@ -38,8 +38,7 @@ namespace Devboost.DroneDelivery.Api.Controllers
             {
                 Console.WriteLine(e);
                 throw;
-            }
-           
+            }  
         }
     }
 }

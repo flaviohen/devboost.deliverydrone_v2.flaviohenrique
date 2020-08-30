@@ -8,7 +8,8 @@ namespace Devboost.DroneDelivery.Domain.Entities
         public Guid Id { get; set; }
         public int Peso {get; set;}
         public ClienteEntity Cliente { get; set; }
-        public DateTime? DataHora { get; set; }
+		public int Cliente_ID { get; set; }
+		public DateTime? DataHora { get; set; }
         public string Status { get; set; }
         public DroneEntity Drone { get; set; }
         public Guid DroneId { get; set; }

@@ -27,6 +27,7 @@ namespace Devboost.DroneDelivery.DomainService.Commands
             {
                 Id = Guid.NewGuid(),
                 Peso = pedido.Peso,
+                Cliente_ID = pedido.ClienteID,
                 DataHora = pedido.DataHora,
             };
 

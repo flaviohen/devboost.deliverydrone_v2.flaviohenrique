@@ -39,7 +39,7 @@ namespace Devboost.DroneDelivery.Api.Controllers
 
         }
 
-        [HttpPost]
+        [HttpPost("CadastroPedido")]
         [Authorize(Roles = "Comprador,Administrador")]
         public async Task<IActionResult>  ReceberPedido(PedidoParam pedido)
         {
@@ -53,9 +53,7 @@ namespace Devboost.DroneDelivery.Api.Controllers
             catch (Exception e)
             {
               return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
-
             }
-
         }
     }
 }
